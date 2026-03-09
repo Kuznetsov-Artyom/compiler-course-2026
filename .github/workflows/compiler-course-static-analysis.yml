@@ -14,4 +14,4 @@ jobs:
           sudo apt-get install -y clang-format
       - name: Run clang-format
         run: |
-          git-clang-format --diff `git merge-base ${GITHUB_SHA} ${GITHUB_BASE_REF}`
+          git-clang-format --diff `git merge-base ${GITHUB_SHA} origin/${GITHUB_BASE_REF}`
