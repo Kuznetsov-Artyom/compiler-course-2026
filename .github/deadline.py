@@ -43,21 +43,17 @@ def main():
     )
     logger.info(f"Time before deadline: {time_before_deadline}")
 
-    if time_before_deadline < timedelta(hours=72):
-        if LABEL_LOW_PRIORITY not in current_labels:
-            logger.info("Adding label: low priority")
-            pr.add_to_labels(LABEL_LOW_PRIORITY)
-        else:
-            logger.info("Label 'low priority' already exists")
-
     if current_date > deadline_date:
         if LABEL_DELAYED not in current_labels:
             logger.info("Adding label: delayed")
             pr.add_to_labels(LABEL_DELAYED)
-
         if LABEL_LOW_PRIORITY in current_labels:
             logger.info("Removing label: low priority")
             pr.remove_from_labels(LABEL_LOW_PRIORITY)
+    elif time_before_deadline < timedelta(hours=72):
+        if LABEL_LOW_PRIORITY not in current_labels:
+            logger.info("Adding label: low priority")
+            pr.add_to_labels(LABEL_LOW_PRIORITY)
 
 
 if __name__ == "__main__":
