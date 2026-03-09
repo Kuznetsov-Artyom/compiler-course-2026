@@ -10,6 +10,7 @@ public:
   explicit ExampleVisitor(clang::ASTContext *context) : m_context(context) {}
   bool VisitFunctionDecl(clang::FunctionDecl *func) {
     func->dump();
+    func->dump();
     return true;
   }
 
