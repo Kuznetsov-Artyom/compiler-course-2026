@@ -7,7 +7,7 @@
 namespace {
 class ExampleVisitor final : public clang::RecursiveASTVisitor<ExampleVisitor> {
 public:
-  explicit ExampleVisitor(clang::ASTContext *context) : m_context(context) {}
+  explicit ExampleVisitor(clang::ASTContext *context) :                                                  m_context(context) {}
   bool VisitFunctionDecl(clang::FunctionDecl *func) {
     func->dump();
     return true;
